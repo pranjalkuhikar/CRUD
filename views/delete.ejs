@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete User</title>
+    <style>
+      h1 {
+        font-size: 3rem;
+      }
+      body {
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        background: linear-gradient(to right, #4568dc, #b06ab3);
+        padding: 250px;
+      }
+      button {
+        padding: 10px;
+        border-radius: 30px;
+        background-color: #12c9ff;
+        border: none;
+        font-weight: 400;
+        cursor: pointer;
+        transition: transform 0.5s;
+        padding: 20px;
+      }
+      .btn {
+        background-color: #f44336;
+      }
+      .btn:hover {
+        transform: scale(1.2);
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>To delete this user : <%= user.email %> , <br />enter the password</h3>
+    <form method="post" action="/user/<%= user.id%>?_method=DELETE">
+      <input placeholder="enter password to delete" name="password" />
+      <br />
+      <br />
+      <button class="btn">Delete</button>
+    </form>
+  </body>
+</html>

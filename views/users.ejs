@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Info</title>
+    <style>
+      h1 {
+        font-size: 3rem;
+      }
+      body {
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        background: linear-gradient(to right, #4568dc, #b06ab3);
+      }
+      table,
+      tr,
+      th,
+      td {
+        border: 2px solid black;
+      }
+      th,
+      td {
+        padding: 1rem;
+      }
+      table {
+        border-collapse: collapse;
+        margin: 0 auto;
+      }
+      button {
+        padding: 10px;
+        border-radius: 20px;
+        background-color: #12c9ff;
+        border: none;
+        font-weight: 400;
+        cursor: pointer;
+        transition: transform 0.5s;
+      }
+      .btn {
+        background-color: #f44336;
+      }
+      button:hover {
+        transform: scale(1.2);
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><u>User Information</u></h1>
+    <form action="/" method="get">
+      <button>Home</button>
+    </form>
+    <br />
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <% for(datas of data){%>
+      <tr>
+        <td><%= datas.id %></td>
+        <td><%= datas.username%></td>
+        <td><%= datas.email %></td>
+        <td>
+          <form action="/user/<%=datas.id %>/edit" method="get">
+            <button>Edit username</button>
+          </form>
+        </td>
+        <td>
+          <form action="/user/<%=datas.id %>/delete" method="get">
+            <button class="btn">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% }%>
+    </table>
+  </body>
+</html>
